@@ -1,0 +1,10 @@
+*.py text eol=crlf
+*.md text eol=crlf
+*.graphml text eol=crlf
+
+# IntelliJ PyCharm Project files
+.idea/*.xml text eol=lf
+
+# Pipenv file
+Pipfile text eol=lf
+Pipfile.lock text eol=lf
