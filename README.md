@@ -20,7 +20,7 @@ Things instructor suggested, or I want to add in the future.
 
 - [ ] Instructor suggested
   - [x] Allow the user to change the range of numbers to choose from (such as 1-100 or 1-1000)
-  - [ ] Keep track of the number of attempts needed
+  - [x] Keep track of the number of attempts needed
   - [x] Add a "Play again?" option at the end
   - [ ] Add a leader board that tracks successes
     - [ ] Track player with not only succession (under default unlimited guess mode, every player will succeed)
