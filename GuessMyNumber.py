@@ -23,15 +23,21 @@ def main():
     print("Welcome to the Guess My Number!")
 
     while True:
+        print(f"Guess a number between {lower_bound} and {upper_bound}")
+        print()
+
         target: int = random.randint(lower_bound, upper_bound)
+        attempt: int = 1
         while True:
-            guess: int = prompt(f"Guess a number between {lower_bound} and {upper_bound}")
+            guess: int = prompt(f"#{attempt} Try")
             if guess < target:
                 print("Too low, try again!")
+                attempt += 1
             elif guess > target:
                 print("Too high, try again!")
+                attempt += 1
             elif guess == target:
-                print("Congratulation! You got my number.")
+                print(f"Congratulation! You got my number in {attempt} {'try' if attempt == 1 else 'tries'}.")
                 break
         again = prompt('Play again', 'str')
         if again.lower() in ['n', 'no']:
