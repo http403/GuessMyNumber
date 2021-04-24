@@ -6,16 +6,19 @@ This is not my first attempt in code this game, but my first attempt to add netw
 like a practice.
 
 ## TODO
-Things that must be done. Just a list keeping me in track.
+Just a list keeping me in track.
+
+### Essential
+Things that must be done.
 
 - [x] Basic Game
   - [x] Guess number between 1 to 10
   - [x] Matching with loops
   
-## Ideas
+### Expansion
 Things instructor suggested, or I want to add in the future.
 
-- [ ] Instructor suggested expansion
+- [ ] Instructor suggested
   - [x] Allow the user to change the range of numbers to choose from (such as 1-100 or 1-1000)
   - [ ] Keep track of the number of attempts needed
   - [ ] Add a "Play again?" option at the end
