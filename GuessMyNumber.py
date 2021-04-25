@@ -1,9 +1,6 @@
 import random
 from typing import Union
 
-lower_bound = 1
-upper_bound = 10
-
 
 # An improved prompting with fixed style and error handling
 def prompt(p, data_type='int') -> Union[str,int]:
@@ -34,23 +31,21 @@ class Game:
     def start_game(self) -> None:
         print(self.greetings)
 
-        self._target = random.randint(self._lower_bound, self._upper_bound)
-
         while True:
-            print(f"Guess a number between {lower_bound} and {upper_bound}")
+            print(f"Guess a number between {self._lower_bound} and {self._upper_bound}")
             print()
 
-            target: int = random.randint(lower_bound, upper_bound)
+            self._target = random.randint(self._lower_bound, self._upper_bound)
             attempt: int = 1
             while True:
                 n: int = prompt(f"#{attempt} Try")
-                if n < target:
+                if n < self._target:
                     print("Too low, try again!")
                     attempt += 1
-                elif n > target:
+                elif n > self._target:
                     print("Too high, try again!")
                     attempt += 1
-                elif n == target:
+                elif n == self._target:
                     print(f"Congratulation! You got my number in {attempt} {'try' if attempt == 1 else 'tries'}.")
                     break
             again = prompt('Play again', 'str')
