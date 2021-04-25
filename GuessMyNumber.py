@@ -3,16 +3,16 @@ from typing import Union
 
 
 # An improved prompting with fixed style and error handling
-def prompt(p, data_type='int') -> Union[str,int]:
-    prompted: str = input(f"{p}> ")
-    if data_type == 'int':
-        while True:
+def prompt(p, data_type='int') -> Union[str, int]:
+    while True:
+        prompted: str = input(f"{p}> ")
+        if data_type == 'int':
             try:
                 return int(prompted)
             except (EOFError, ValueError):
                 print("That's not something you suppose to type in!")
-    else:
-        return prompted
+        else:
+            return prompted
 
 
 class Game:
