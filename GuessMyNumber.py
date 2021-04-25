@@ -6,7 +6,7 @@ upper_bound = 10
 
 
 # An improved prompting with fixed style and error handling
-def prompt(p, data_type = 'int') -> Union[str,int]:
+def prompt(p, data_type='int') -> Union[str,int]:
     prompted: str = input(f"{p}> ")
     if data_type == 'int':
         while True:
@@ -18,34 +18,46 @@ def prompt(p, data_type = 'int') -> Union[str,int]:
         return prompted
 
 
-# The main logic
-def main():
-    print("Welcome to the Guess My Number!")
+class Game:
+    def __init__(self):
+        self._target: int = 0
 
-    while True:
-        print(f"Guess a number between {lower_bound} and {upper_bound}")
-        print()
+        self._lower_bound: int = 1
+        self._upper_bound: int = 10
+        self._greet_string: str = 'Welcome to the Guess My Number'
+        self._quit_string: str = 'Thanks for playing this game!'
 
-        target: int = random.randint(lower_bound, upper_bound)
-        attempt: int = 1
+    @property
+    def greetings(self) -> str:
+        return self._greet_string
+
+    def start_game(self) -> None:
+        print(self.greetings)
+
+        self._target = random.randint(self._lower_bound, self._upper_bound)
+
         while True:
-            guess: int = prompt(f"#{attempt} Try")
-            if guess < target:
-                print("Too low, try again!")
-                attempt += 1
-            elif guess > target:
-                print("Too high, try again!")
-                attempt += 1
-            elif guess == target:
-                print(f"Congratulation! You got my number in {attempt} {'try' if attempt == 1 else 'tries'}.")
-                break
-        again = prompt('Play again', 'str')
-        if again.lower() in ['n', 'no']:
-            break
+            print(f"Guess a number between {lower_bound} and {upper_bound}")
+            print()
 
-    print("Thanks for playing. Goodbye.")
-    pass
+            target: int = random.randint(lower_bound, upper_bound)
+            attempt: int = 1
+            while True:
+                n: int = prompt(f"#{attempt} Try")
+                if n < target:
+                    print("Too low, try again!")
+                    attempt += 1
+                elif n > target:
+                    print("Too high, try again!")
+                    attempt += 1
+                elif n == target:
+                    print(f"Congratulation! You got my number in {attempt} {'try' if attempt == 1 else 'tries'}.")
+                    break
+            again = prompt('Play again', 'str')
+            if again.lower() in ['.', 'n', 'no']:
+                break
 
 
 if __name__ == '__main__':
-    main()
+    game = Game()
+    game.start_game()
